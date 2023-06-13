@@ -1,0 +1,32 @@
+name: NodeJS
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+
+    - name: Installing Dependencies
+      run: npm install
+      
+    - name: Building
+      run: npm run build
+      
+    - name: Render Deployment
+      uses: sws2apps/render-deployment@v1.2.0
+      with:
+        serviceId: srv-ci4bvph5rnuiies0ipig?key=EIlVSeJ2kAE
+        apiKey: rnd_1W8ZMSu1jhj7hGdpt8JQGtql0ZJH
+        
