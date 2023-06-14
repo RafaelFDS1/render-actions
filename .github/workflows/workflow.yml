@@ -16,13 +16,7 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
-
-    - name: Installing Dependencies
-      run: npm install
-      
-    - name: Building
-      run: npm run build
+        node-version: 14-alpine
 
     - name: Render Deployment
       uses: johnbeynon/render-deploy-action@v0.0.8
