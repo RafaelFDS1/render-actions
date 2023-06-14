@@ -23,10 +23,10 @@ jobs:
       
     - name: Building
       run: npm run build
-      
+
     - name: Render Deployment
-      uses: sws2apps/render-deployment@v1.2.0
+      uses: johnbeynon/render-deploy-action@v0.0.8
       with:
-        serviceId: srv-ci4bvph5rnuiies0ipig?key=EIlVSeJ2kAE
-        apiKey: rnd_1W8ZMSu1jhj7hGdpt8JQGtql0ZJH
+        service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+        api-key: ${{ secrets.MY_RENDER_API_KEY }}
         
